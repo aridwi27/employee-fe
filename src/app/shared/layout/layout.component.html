@@ -5,36 +5,70 @@
     [style.width]="collapse ? '15%' : '7%'"
   >
     <div class="btn-collapse" (click)="onCollapse()">
-      <mat-icon matSuffix class="me-2"> {{collapse ? "keyboard_double_arrow_left" : "keyboard_double_arrow_right"}} </mat-icon>
- 
+      <mat-icon matSuffix class="me-2">
+        {{
+          collapse
+            ? "keyboard_double_arrow_left"
+            : "keyboard_double_arrow_right"
+        }}
+      </mat-icon>
     </div>
-    <div class="d-flex justify-content-center align-items-center"><img class="w-100" [src]="collapse ? 'assets/image/icon-horizontal.svg':'assets/image/icon-vertical.svg'" alt=""></div>
-    <div
-      class="menu mt-3 d-flex flex-column justify-content-center h-75"
-    >
-      <div class="menu-list ">
-        <mat-icon matSuffix class="me-2"  [ngClass]="!collapse ? 'text-center w-100 m-0' : ''"> home</mat-icon>
-        {{ collapse ? "Employee" : "" }}
-      </div>
-      <div class="menu-list">
-        <mat-icon matSuffix class="me-2"  [ngClass]="!collapse ? 'text-center w-100 m-0' : ''"> person_add</mat-icon>
-        {{ collapse ? "Add Person" : "" }}
-      </div>
-      <div class="menu-list">
-        <mat-icon matSuffix class="me-2"  [ngClass]="!collapse ? 'text-center w-100 m-0' : ''"> person_add</mat-icon>
-        {{ collapse ? "Add Person" : "" }}
-      </div>
+    <div class="d-flex justify-content-center align-items-center">
+      <img
+        class="w-100"
+        [src]="
+          collapse
+            ? 'assets/image/icon-horizontal.svg'
+            : 'assets/image/icon-vertical.svg'
+        "
+        alt=""
+      />
+    </div>
+    <div class="menu mt-3 d-flex flex-column justify-content-center h-75">
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          aria-current="true"
+          class="menu-list item"
+          [routerLink]="'/home'"
+          [routerLinkActive]="'active'"
+        >
+          <mat-icon
+            matSuffix
+            class="me-2"
+            [ngClass]="!collapse ? 'text-center w-100 m-0' : ''"
+          >
+            home</mat-icon
+          >
+          {{ collapse ? "Employee" : "" }}
+        </li>
+        <li
+          class="list-group-item"
+          aria-current="true"
+          class="menu-list item"
+          [routerLink]="'/home/add-user'"
+          [routerLinkActive]="'active'"
+        >
+          <mat-icon
+            matSuffix
+            class="me-2"
+            [ngClass]="!collapse ? 'text-center w-100 m-0' : ''"
+          >
+            person_add</mat-icon
+          >
+          {{ collapse ? "Add Person" : "" }}
+        </li>
+      </ul>
+
     </div>
     <div class="d-flex align-items-end">
-        <mat-icon matSuffix class="me-2"> settings</mat-icon> {{ collapse ? "Setting" : "" }}
+      <mat-icon matSuffix class="me-2"> settings</mat-icon>
+      {{ collapse ? "Setting" : "" }}
     </div>
   </div>
 
-
-  <div class="content w-100 p-2" >
+  <div class="content w-100 p-2">
     <router-outlet></router-outlet>
-      <div>
-    
-  </div>
+    <div></div>
   </div>
 </div>
