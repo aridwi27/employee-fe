@@ -1,0 +1,50 @@
+<div class="container-fluid vh-100">
+  <div class="row h-100">
+    <div class="col-6 bg-primary d-none d-sm-block">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <img src="assets/image/employee.png" style="width: 300px" alt="" />
+      </div>
+    </div>
+    <div class="col col-md-6" style="background-color: #fafafa">
+      <div class="d-flex justify-content-center align-items-center h-100 w-100">
+        <form
+          [formGroup]="formLogin"
+          (ngSubmit)="onSubmit()"
+          class="d-flex flex-column"
+        >
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input
+              type="text"
+              formControlName="username"
+              matInput
+              placeholder="Username"
+            />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              formControlName="password"
+              color="accent"
+              matInput
+              placeholder="Placeholder"
+            />
+            <mat-icon matSuffix (click)="onClickPassword()">
+              {{ showPassword ? "visibility" : "visibility_off" }}</mat-icon
+            >
+          </mat-form-field>
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="!formLogin.valid"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

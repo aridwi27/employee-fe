@@ -1,3 +1,10 @@
+1.clone this repository
+2.install package
+3.npm start
+4.login Username:admin and Password:admin
+
+
+
 # EmployeeManagement
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.

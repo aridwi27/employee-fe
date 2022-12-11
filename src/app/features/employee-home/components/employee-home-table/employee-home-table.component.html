@@ -1,0 +1,85 @@
+<div class="card mt-3 h-75 p-3" style="">
+  <div class="d-flex justify-content-between align-items-center">
+    <mat-form-field  >
+      <mat-label>Search</mat-label>
+      <input class="w-25" matInput (keyup)="applyFilter($event)" placeholder="" />
+    </mat-form-field>
+    <button style="height:30px" mat-raised-button  class="bg-success text-white" (click)="navigate()">Add User</button>
+  
+  </div>
+ 
+  <table
+    class=""
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    (matSortChange)="announceSortChange($event)"
+  >
+    <tr mat-header-row *matHeaderRowDef="columnEmployee"></tr>
+    <tr  mat-row *matRowDef="let emprow; columns: columnEmployee"></tr>
+    <ng-container matColumnDef="id">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by number"
+      >
+        id
+      </th>
+      <td mat-cell *matCellDef="let emp">{{ emp.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>username</th>
+      <td mat-cell *matCellDef="let emp">{{ emp.username }}</td>
+    </ng-container>
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>firstName</th>
+      <td mat-cell *matCellDef="let emp">{{ emp.firstName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>lastName</th>
+      <td mat-cell *matCellDef="let emp">{{ emp.lastName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>email</th>
+      <td mat-cell *matCellDef="let emp">{{ emp.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="birthDate">
+      <th mat-header-cell *matHeaderCellDef>birthDate</th>
+      <td mat-cell *matCellDef="let emp">{{ emp.birthDate | date }}</td>
+    </ng-container>
+    <ng-container matColumnDef="basicSalary">
+      <th mat-header-cell *matHeaderCellDef>basicSalary</th>
+      <td mat-cell *matCellDef="let emp">
+        {{ emp.basicSalary | currency:'RP' }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>status</th>
+      <td mat-cell *matCellDef="let emp">{{ emp.status |titlecase }}</td>
+    </ng-container>
+    <ng-container matColumnDef="group">
+      <th mat-header-cell *matHeaderCellDef>group</th>
+      <td mat-cell *matCellDef="let emp">{{ emp.group }}</td>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>description</th>
+      <td mat-cell *matCellDef="let emp">{{ emp.description| date }}</td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>action</th>
+      <td mat-cell *matCellDef="let emp">
+        <div class=" d-flex">
+          <button mat-raised-button  class="bg-warning me-1">Edit</button>
+          <button mat-raised-button color="warn">Delete</button>
+        </div>
+      </td>
+    </ng-container>
+  </table>
+  <mat-paginator
+    [pageSizeOptions]="[5, 6]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>

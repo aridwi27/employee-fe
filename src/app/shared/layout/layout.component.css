@@ -1,0 +1,24 @@
+.animation-collapse{
+
+ 
+}
+.menu {
+    
+}
+.menu-list{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    min-width: 60px;
+}
+.btn-collapse{
+    cursor: pointer;
+    width: 30px;
+}
+.icon-collapse{
+    font-size: 20px;
+}
+
+.content {
+    background-color: #F5F8FA;
+}

@@ -1,0 +1,10 @@
+.card-style{
+    border: none;
+    
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(76, 87, 125, 0.02);
+}
+
+.card-height{
+    height: 15%;
+}
